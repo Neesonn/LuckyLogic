@@ -1,28 +1,28 @@
 # Lucky Logic Website
 
-A modern "Coming Soon" website built with Next.js, TypeScript, and Tailwind CSS, featuring beautiful animations and SEO optimization.
+A modern Next.js website with a sleek authentication system and dynamic components.
 
 ## Features
 
-- Modern and responsive design with gradient backgrounds
-- TypeScript for type safety
-- Tailwind CSS for styling
-- Framer Motion for smooth animations
-- SEO optimization with Next.js App Router metadata
-- Automatic sitemap generation
-- Dark mode support
-- Mobile-friendly layout
-
-## Prerequisites
-
-- Node.js 18.x or later
-- npm package manager
+- 🔒 Modern authentication system with animated lock interface
+- 🎨 Sleek, responsive design with Tailwind CSS
+- 🌟 Framer Motion animations
+- 🔐 Interactive login page with form validation
+- ✨ Custom animated components
+- 🧪 Comprehensive test coverage
 
 ## Getting Started
 
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
 1. Clone the repository:
 ```bash
-git clone [your-repository-url]
+git clone [your-repo-url]
 cd website_lucky_logic
 ```
 
@@ -31,80 +31,109 @@ cd website_lucky_logic
 npm install
 ```
 
-3. Run the development server:
+3. Start the development server:
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+The application will be available at `http://localhost:3000`.
 
 ## Project Structure
 
 ```
 src/
-├── app/                    # Next.js app directory
-│   ├── layout.tsx         # Root layout with metadata
-│   ├── page.tsx           # Home page component
-│   ├── page.metadata.ts   # Page-specific metadata
-│   └── globals.css        # Global styles and Tailwind
-├── components/            # Reusable components
-├── lib/                   # Library code
-├── types/                # TypeScript type definitions
-└── utils/                # Utility functions
+├── app/
+│   ├── login/
+│   │   └── page.tsx        # Login page with form
+│   ├── dashboard/
+│   │   └── page.tsx        # Dashboard page
+│   ├── globals.css         # Global styles
+│   └── layout.tsx          # Root layout
+├── components/
+│   ├── ui/
+│   │   ├── Button.tsx      # Reusable button component
+│   │   ├── Input.tsx       # Form input component
+│   │   └── Card.tsx        # Card container component
+│   │   └── HomeButton.tsx      # Navigation button component
+│   └── __tests__/      # Component tests
+├── lib/                 # Utility libraries
+├── utils/              # Helper functions
+└── types/              # TypeScript type definitions
 ```
 
-## Build and Deployment
+## Key Components
 
-To create a production build:
+### AnimatedLock
+
+A dynamic lock component that provides visual feedback and navigation:
+
+- Animates on hover
+- Changes between lock/unlock states
+- Navigates to login page on click
+- Smooth spring animations
+- Fully tested
+
+### Login Page
+
+Modern authentication interface with:
+
+- Clean, minimalist design
+- Form validation
+- Loading states
+- Error handling
+- Animated transitions
+- Responsive layout
+
+## Testing
+
+Run the test suite:
 
 ```bash
-npm run build
+npm test
 ```
 
-This will:
-1. Create an optimized production build
-2. Generate a sitemap automatically
-3. Create robots.txt file
+Tests cover:
+- Component rendering
+- User interactions
+- Navigation
+- State management
+- Animation triggers
 
-## Technologies Used
+## Development
 
-- Next.js 14.1.3
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm test` - Run test suite
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+
+## Authentication
+
+Default credentials for development:
+- Username: `admin`
+- Password: `password`
+
+## Technologies
+
+- Next.js 14
+- React 18
 - TypeScript
-- Tailwind CSS 3.3.0
+- Tailwind CSS
 - Framer Motion
-- next-sitemap for SEO
-- PostCSS and Autoprefixer
+- Jest & React Testing Library
+- ESLint & Prettier
 
-## SEO Features
+## Contributing
 
-The website includes comprehensive SEO features:
-- Dynamic metadata generation
-- OpenGraph tags for social media sharing
-- Twitter card support
-- Automatic sitemap generation
-- Robots.txt configuration
-- Semantic HTML structure
-
-## Development Features
-
-- Hot reloading for instant feedback
-- TypeScript for better development experience
-- Tailwind CSS for rapid styling
-- Responsive design with mobile-first approach
-
-## Learn More
-
-To learn more about the technologies used:
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS](https://tailwindcss.com/docs)
-- [Framer Motion](https://www.framer.com/motion/)
-- [TypeScript](https://www.typescriptlang.org/docs)
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new). Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
