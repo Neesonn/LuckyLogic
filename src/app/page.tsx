@@ -2,10 +2,6 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Metadata } from 'next';
-import { metadata as pageMetadata } from './page.metadata';
-
-export const metadata: Metadata = pageMetadata;
 
 export default function Home() {
   return (
