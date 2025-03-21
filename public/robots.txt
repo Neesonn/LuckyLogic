@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://luckylogic.com
+
+# Sitemaps
+Sitemap: https://luckylogic.com/sitemap.xml
+Sitemap: https://luckylogic.com/server-sitemap.xml

@@ -1,47 +1,57 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
+import { Metadata } from 'next';
+import { metadata as pageMetadata } from './page.metadata';
+
+export const metadata: Metadata = pageMetadata;
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-green-900 to-green-800 flex flex-col items-center justify-center p-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-center"
-      >
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-          Lucky Logic
-        </h1>
-        <div className="w-24 h-1 bg-yellow-400 mx-auto mb-8"></div>
-        <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
-          Coming Soon
-        </h2>
-        <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
-          We're crafting something extraordinary. Stay tuned for our grand reveal!
-        </p>
-        
+    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-gradient-to-r from-blue-500 to-purple-600">
+      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm">
         <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
         >
-          <button className="bg-yellow-400 text-green-900 px-8 py-3 rounded-full font-semibold flex items-center gap-2 mx-auto hover:bg-yellow-300 transition-colors">
-            Get Notified
-            <ArrowRightIcon className="w-5 h-5" />
-          </button>
+          <h2 className="text-4xl font-bold text-white mb-4">Lucky Logic</h2>
+          <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+            We&rsquo;re crafting something extraordinary. Stay tuned for our
+            grand reveal!
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {[
+              { title: 'Innovation', icon: '/window.svg' },
+              { title: 'Global Reach', icon: '/globe.svg' },
+              { title: 'Documentation', icon: '/file.svg' },
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="p-6 bg-white bg-opacity-10 rounded-lg backdrop-blur-sm"
+              >
+                <div className="flex flex-col items-center">
+                  <Image
+                    src={item.icon}
+                    alt={item.title}
+                    width={48}
+                    height={48}
+                    className="mb-4"
+                  />
+                  <h3 className="text-lg font-semibold text-white">
+                    {item.title}
+                  </h3>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 1 }}
-        className="absolute bottom-8 text-green-100 text-sm"
-      >
-        © 2024 Lucky Logic. All rights reserved.
-      </motion.div>
+      </div>
     </main>
   );
 }
