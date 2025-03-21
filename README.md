@@ -1,24 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lucky Logic Website
+
+A modern website built with Next.js, TypeScript, Prisma, and Tailwind CSS.
+
+## Features
+
+- Modern and responsive design
+- TypeScript for type safety
+- Prisma for database management
+- Tailwind CSS for styling
+- Framer Motion for animations
+- PostgreSQL database
+
+## Prerequisites
+
+- Node.js 18.x or later
+- PostgreSQL database
+- npm or yarn package manager
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [your-repository-url]
+cd website_lucky_logic
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up your environment variables:
+Create a `.env` file in the root directory and add your database URL:
+```
+DATABASE_URL="postgresql://username:password@localhost:5432/lucky_logic"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Initialize the database:
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+5. Run the development server:
+```bash
+npm run dev
+```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+```
+src/
+├── app/              # Next.js app directory
+├── components/       # Reusable components
+├── lib/             # Library code and configurations
+├── types/           # TypeScript type definitions
+└── utils/           # Utility functions
+```
+
+## Technologies Used
+
+- Next.js 14
+- TypeScript
+- Prisma
+- Tailwind CSS
+- Framer Motion
+- PostgreSQL
+
+## License
+
+This project is licensed under the MIT License.
 
 ## Learn More
 
