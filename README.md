@@ -4,12 +4,14 @@ A modern Next.js website with a sleek authentication system and dynamic componen
 
 ## Features
 
-- 🔒 Modern authentication system with animated lock interface
+- 🔒 Secure authentication system with protected routes
 - 🎨 Sleek, responsive design with Tailwind CSS
 - 🌟 Framer Motion animations
 - 🔐 Interactive login page with form validation
-- ✨ Custom animated components
-- 🧪 Comprehensive test coverage
+- ✨ Custom themed components
+- 🎯 Protected admin dashboard
+- 🌐 Global state management with Context API
+- 🎨 Consistent theme system across pages
 
 ## Getting Started
 
@@ -44,77 +46,56 @@ The application will be available at `http://localhost:3000`.
 src/
 ├── app/
 │   ├── login/
-│   │   └── page.tsx        # Login page with form
-│   ├── dashboard/
-│   │   └── page.tsx        # Dashboard page
+│   │   └── page.tsx        # Login page with authentication
+│   ├── admin-dashboard/
+│   │   └── page.tsx        # Protected admin dashboard
 │   ├── globals.css         # Global styles
-│   └── layout.tsx          # Root layout
+│   └── layout.tsx          # Root layout with AuthProvider
 ├── components/
-│   ├── ui/
-│   │   ├── Button.tsx      # Reusable button component
-│   │   ├── Input.tsx       # Form input component
-│   │   └── Card.tsx        # Card container component
-│   │   └── HomeButton.tsx      # Navigation button component
-│   └── __tests__/      # Component tests
-├── lib/                 # Utility libraries
-├── utils/              # Helper functions
-└── types/              # TypeScript type definitions
+│   └── ui/
+│       ├── Button.tsx      # Reusable button component
+│       ├── Input.tsx       # Form input with validation
+│       ├── Card.tsx        # Frosted glass card component
+│       ├── HomeButton.tsx  # Navigation button
+│       ├── LockButton.tsx  # Authentication button
+│       └── ThemeComponents.tsx # Themed UI components
+├── context/
+│   └── AuthContext.tsx     # Global authentication state
+└── types/                  # TypeScript type definitions
 ```
 
-## Key Components
+## Authentication System
 
-### AnimatedLock
+The website implements a secure authentication system with the following features:
 
-A dynamic lock component that provides visual feedback and navigation:
+### Global State Management
+- Uses React Context API for global auth state
+- Persists login state with localStorage
+- Provides login/logout functionality across the app
 
-- Animates on hover
-- Changes between lock/unlock states
-- Navigates to login page on click
-- Smooth spring animations
-- Fully tested
+### Protected Routes
+- Admin dashboard with route protection
+- Automatic redirect for unauthorized users
+- Prevention of content flash during auth checks
 
 ### Login Page
-
-Modern authentication interface with:
-
 - Clean, minimalist design
-- Form validation
-- Loading states
-- Error handling
-- Animated transitions
-- Responsive layout
+- Form validation with error handling
+- Secure credential verification
+- Themed components for consistent UI
+- Responsive layout with frosted glass effect
 
-## Testing
+### Admin Dashboard
+- Protected access for authenticated users
+- Secure logout functionality
+- Consistent themed components
+- Responsive design with modern UI
 
-Run the test suite:
+## Development Credentials
 
-```bash
-npm test
-```
-
-Tests cover:
-- Component rendering
-- User interactions
-- Navigation
-- State management
-- Animation triggers
-
-## Development
-
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm start` - Start production server
-- `npm test` - Run test suite
-- `npm run lint` - Run ESLint
-- `npm run format` - Format code with Prettier
-
-## Authentication
-
-Default credentials for development:
+For development and testing:
 - Username: `admin`
-- Password: `password`
+- Password: `admin`
 
 ## Technologies
 
@@ -123,8 +104,16 @@ Default credentials for development:
 - TypeScript
 - Tailwind CSS
 - Framer Motion
-- Jest & React Testing Library
+- Context API for state management
 - ESLint & Prettier
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
 
 ## Contributing
 
