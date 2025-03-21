@@ -361,23 +361,13 @@ export default function CustomersPage() {
                               ).toUpperCase()}
                             </span>
                           </div>
-                          <div>
-                            <button
-                              onClick={() =>
-                                router.push(`/admin/customers/${customer.id}`)
-                              }
-                              className="text-white font-medium text-base hover:text-emerald-500 transition-colors text-left"
-                            >
+                          <div className="flex flex-col">
+                            <p className="text-white font-medium text-base">
                               {customer.firstName} {customer.surname}
-                            </button>
-                            <button
-                              onClick={() =>
-                                router.push(`/admin/customers/${customer.id}`)
-                              }
-                              className="text-gray-400 text-sm hover:text-emerald-500 transition-colors text-left"
-                            >
+                            </p>
+                            <p className="text-gray-400 text-sm">
                               {customer.email}
-                            </button>
+                            </p>
                           </div>
                         </div>
                       </td>
