@@ -1,5 +1,7 @@
+import scrollbar from 'tailwind-scrollbar';
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -12,7 +14,7 @@ module.exports = {
         glassWhite: 'rgba(255,255,255,0.1)',
         glassDark: 'rgba(0,0,0,0.1)',
         glassStroke: 'rgba(255,255,255,0.2)',
-        
+
         // Brand colors
         brand: {
           50: '#f0fdf4',
@@ -20,13 +22,13 @@ module.exports = {
           200: '#bbf7d0',
           300: '#86efac',
           400: '#4ade80',
-          500: '#22c55e',  // Primary brand color
+          500: '#22c55e', // Primary brand color
           600: '#16a34a',
           700: '#15803d',
           800: '#166534',
           900: '#14532d',
         },
-        
+
         // Additional utility colors
         surface: {
           light: 'rgba(255,255,255,0.05)',
@@ -54,9 +56,14 @@ module.exports = {
       animation: {
         blink: 'blink 1s step-end infinite',
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
     },
   },
-  plugins: [
-    require('tailwind-scrollbar')({ nocompatible: true }),
-  ],
+  plugins: [scrollbar({ nocompatible: true })],
 };
+
+module.exports = config;

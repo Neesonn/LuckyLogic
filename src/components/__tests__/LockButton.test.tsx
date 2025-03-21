@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { LockButton } from '@/components/ui/LockButton';
+import { useRouter } from 'next/navigation';
 
 // Mock the useRouter hook
 jest.mock('next/navigation', () => ({
@@ -22,13 +23,15 @@ describe('LockButton', () => {
   });
 
   it('navigates to login page when clicked', () => {
-    const mockRouter = { push: jest.fn() };
-    jest.spyOn(require('next/navigation'), 'useRouter').mockReturnValue(mockRouter);
+    const mockPush = jest.fn();
+    (useRouter as jest.Mock).mockImplementation(() => ({
+      push: mockPush,
+    }));
 
     render(<LockButton />);
     const button = screen.getByTestId('lock-button');
     fireEvent.click(button);
 
-    expect(mockRouter.push).toHaveBeenCalledWith('/login');
+    expect(mockPush).toHaveBeenCalledWith('/login');
   });
-}); 
+});

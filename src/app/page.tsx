@@ -2,11 +2,10 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import LockButton from '@/components/ui/LockButton';
 import { PageLayout } from '@/components/ui/PageLayout';
+import { ThemeHeading, ThemeSubheading } from '@/components/ui/ThemeComponents';
+import { LockButton } from '@/components/ui/LockButton';
 import {
-  ThemeHeading,
-  ThemeSubheading,
   ThemeFeatureCard,
   ThemeIconContainer,
   ThemeFeatureTitle,
@@ -22,9 +21,7 @@ export default function Home() {
 
       <PageLayout showLogo>
         <ThemeHeading>Lucky Logic</ThemeHeading>
-        <ThemeSubheading>
-          Something extraordinary is coming
-        </ThemeSubheading>
+        <ThemeSubheading>Something extraordinary is coming</ThemeSubheading>
 
         {/* Countdown placeholder */}
         <div className="grid grid-cols-4 gap-4 max-w-lg mx-auto mb-12">
@@ -40,18 +37,32 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               className="flex flex-col items-center"
             >
-              <span className="text-2xl font-bold text-brand-400">{item.value}</span>
+              <span className="text-2xl font-bold text-brand-400">
+                {item.value}
+              </span>
               <span className="text-sm text-white/80">{item.label}</span>
             </motion.div>
           ))}
         </div>
-        
+
         {/* Feature highlights */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {[
-            { title: 'Innovation', icon: '/window.svg', description: 'Pushing boundaries with cutting-edge solutions' },
-            { title: 'Global Reach', icon: '/globe.svg', description: 'Connecting minds across continents' },
-            { title: 'Documentation', icon: '/file.svg', description: 'Clear, concise, and comprehensive guides' },
+            {
+              title: 'Innovation',
+              icon: '/window.svg',
+              description: 'Pushing boundaries with cutting-edge solutions',
+            },
+            {
+              title: 'Global Reach',
+              icon: '/globe.svg',
+              description: 'Connecting minds across continents',
+            },
+            {
+              title: 'Documentation',
+              icon: '/file.svg',
+              description: 'Clear, concise, and comprehensive guides',
+            },
           ].map((item, index) => (
             <motion.div
               key={item.title}

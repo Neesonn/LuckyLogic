@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Card } from './card';
+import { Card } from './Card';
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -15,17 +15,21 @@ export const PageLayout = ({
   cardClassName = '',
 }: PageLayoutProps) => {
   return (
-    <main className={`min-h-screen theme-gradient-bg flex flex-col items-center justify-center p-5 relative overflow-hidden ${className}`}>
+    <main
+      className={`min-h-screen theme-gradient-bg flex flex-col items-center justify-center p-5 relative overflow-hidden ${className}`}
+    >
       {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-200/20 via-transparent to-transparent" />
-      
+
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
         className="relative"
       >
-        <Card className={`max-w-3xl w-full bg-gradient-to-br from-white/10 via-white/5 to-white/10 border-brand-200/30 backdrop-blur-xl ${cardClassName}`}>
+        <Card
+          className={`max-w-3xl w-full bg-gradient-to-br from-white/10 via-white/5 to-white/10 border-brand-200/30 backdrop-blur-xl ${cardClassName}`}
+        >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -43,4 +47,4 @@ export const PageLayout = ({
       </motion.div>
     </main>
   );
-}; 
+};

@@ -1,54 +1,45 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { User, Key } from "lucide-react";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { HomeButton } from "@/components/ui/HomeButton";
+import { useState } from 'react';
+import { User, Key } from 'lucide-react';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
+import { HomeButton } from '@/components/ui/HomeButton';
+import { ThemeHeading } from '@/components/ui/ThemeComponents';
+import { useAuth } from '@/context/AuthContext';
 
-const LoginPage = () => {
-  const router = useRouter();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+export default function LoginPage() {
+  const { login } = useAuth();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-    setError("");
+    setError('');
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    if (username === "admin" && password === "password") {
-      router.push("/dashboard");
-    } else {
-      setError("Invalid credentials");
-      setIsLoading(false);
+    if (!login(username, password)) {
+      setError('Invalid credentials. Try admin/admin.');
     }
   };
 
   return (
-    <>
-      <div className="fixed top-4 right-4">
+    <div className="min-h-screen theme-gradient-bg">
+      <div className="fixed top-4 right-4 z-50">
         <HomeButton />
       </div>
-      <div className="min-h-screen theme-gradient-bg flex items-center justify-center p-5">
-        <Card>
-          <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-white mb-2">Welcome Back</h1>
-            <p className="text-gray-400">Please sign in to continue</p>
-          </div>
 
-          <form onSubmit={handleLogin} className="space-y-6">
+      <div className="flex items-center justify-center min-h-screen p-4">
+        <Card className="w-full max-w-md p-6">
+          <ThemeHeading className="text-center mb-6">Login</ThemeHeading>
+
+          <form onSubmit={handleLogin} className="space-y-4">
             <Input
               label="Username"
               icon={<User className="h-5 w-5 text-gray-400" />}
               type="text"
-              placeholder="Enter your username"
+              placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
@@ -58,34 +49,19 @@ const LoginPage = () => {
               label="Password"
               icon={<Key className="h-5 w-5 text-gray-400" />}
               type="password"
-              placeholder="Enter your password"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={error}
               required
             />
 
-            <Button
-              type="submit"
-              isLoading={isLoading}
-              className="w-full"
-            >
-              Sign In
+            <Button type="submit" className="w-full">
+              Login
             </Button>
           </form>
-
-          <div className="mt-6 text-center">
-            <p className="text-sm text-gray-400">
-              Forgot your password?{" "}
-              <a href="#" className="text-green-500 hover:text-green-400">
-                Reset it here
-              </a>
-            </p>
-          </div>
         </Card>
       </div>
-    </>
+    </div>
   );
-};
-
-export default LoginPage; 
+}
